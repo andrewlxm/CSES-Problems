@@ -16,32 +16,29 @@ typedef long long int lli;
 const int N = 1e9 + 7;
 
 void solve() {
-    int n; 
-    cin >> n;
+    int n; cin >> n;
     int *a = new int[n];
+    int tmp = N;
     for (int i = 0;i<n;i++) {
         cin >> a[i];
     }
-    sort(a, a+n);
     int res = 0;
-    for (int i = 0 ;i<n;i++) {
-        while (i < n-1 && a[i] == a[i+1])
-        {
-            i++;
+    sort(a,a+n);
+    if (n == 1) cout << 1 << endl;
+    else {
+       for (int i = 0;i<n;i++) {
+           if (a[i] != tmp) res++;
+           tmp = a[i];
         }
-        res++;
+       cout << res << endl;
     }
-    cout << res << endl;
+    
 }    
 
 int main() {
 	fast;
-    /* int t; cin >> t;
-   while (t--)
-   {
-       
+    //int t; cin >> t;
+    //while (t--) solve();
     solve();
-   } */
-   solve();
    
 }
